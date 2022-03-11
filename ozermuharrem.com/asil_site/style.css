@@ -1,0 +1,16 @@
+#anasayfa{
+    background-image: url("image/arkaplan.png");
+}
+.resim{
+    width: 250px;
+    height: 250px;
+}
+.text{
+    color : #fff !important;
+}
+i:hover{
+    font-size: x-large;
+}
+.navbar{
+    background: #414344;
+}
