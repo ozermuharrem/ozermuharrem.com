@@ -54,16 +54,16 @@
         </h2>
         <div>
             <p>
-                Yapmış olduğumuz uygulamada kullanacağımız bilgileri tarayıcı hafızasında saklama gereği duyabiliriz. Hafızaya eleman ekleme çıkartma vb. işlemler için kullanabileceğimiz Local & Session Storage özelliği.</p>
+                Yapmış olduğumuz uygulamada kullanacağımız bilgileri tarayıcı hafızasında saklama gereği duyabiliriz. Hafızaya eleman ekleme çıkartma vb. işlemler için Local & Session Storage özelliğini kullanarak saklayabiliriz.</p>
                 <ul>
                     <li>
-                        Local Storage : Tarayıcı hafızasına kalıcı olarak kaydedilir:
+                        Local Storage : Tarayıcı hafızasına kalıcı olarak kaydedilir.
                     </li>
                     <li>
-                        Session Storage : Uygulama yada web sitesi açık kaldığı sürece hafızada tutar.
+                        Session Storage : Uygulama yada web sitesi açık kaldığı sürece hafızada kalır sayfa kapandığında bilgiler hafızada artık yer almaz.
                     </li>
                 </ul>
-                Bir Html sayfasının hafızasına eklenen ögelere f12 veya fareden sağ tıklayıp incele dedikten sonra açılan ekrtanda "Application" bölümü altnda ki Local veya Session Storage bölümlerinden ulaşabilirsiniz. <br><br>   
+                Bir Html sayfasının hafızasına eklenen ögelere f12 veya fareden sağ tıklayıp incele dedikten sonra açılan ekranda "Application" bölümü altnda ki Local veya Session Storage bölümlerinden ulaşabilirsiniz. <br><br>   
                 <img class ="w-100 h-100" src="/asil_site/makalelerim/makale_img/local&session_stroge/application.png" alt="">
             </p>
             <br>
@@ -82,11 +82,13 @@
         <div>
             <h3><span class="text-warning">setItem();</span> methodu</h3>
             <p>
-                <span class="text-warning">setItem();</span> methodu ile tarayıcımızın hafızasına eleman ekleyebildiğimiz metoddur. <br><br>
-                <code class=" d-block pt-3">
-                    const isim = localStorage.setItem('İsim','Muharrem'); <br>
-                    const soyİsim = localStorage.setItem('Soyİsim','Özer');
-                </code><br>
+                <span class="text-warning">setItem();</span> methodu ile tarayıcımızın hafızasına eleman ekleyebildiğimiz metoddur. <br>
+                <pre class="bg-light">
+                    <code class=" d-block pt-3">
+                        const isim = localStorage.setItem('İsim','Muharrem');   <br>
+                        const soyİsim = localStorage.setItem('Soyİsim','Özer');
+                    </code>
+                </pre>
                 <span class="d-block">Çıktı</span> <br>
                 <img class ="w-100 h-100" src="/asil_site/makalelerim/makale_img/local&session_stroge/ouuput.console1.png" alt="">  
             </p>
@@ -98,11 +100,13 @@
                 <span class="text-warning">getItem();</span> methodu ise tarayıcının hafızasına eklediğimiz elemanları alabileceğimiz methoddur. <br>
 
                 getItem(); metdhodunun kullanımı; 
-                <br><br>
-                <code>
-                    let val = localStorage.getItem('isim');<br>
-                    console.log(val); 
-                </code> <br><br>
+                <br>
+                <pre class="bg-light">
+                    <code>
+                        let val = localStorage.getItem('isim');<br>
+                        console.log(val); 
+                    </code> 
+                </pre>
                 Çıktı => Muharrem
             </p>
         </div>
@@ -112,11 +116,13 @@
             <p>
                 <span class="text-warning">removeItem();</span> metodu ile tarayıcı hafızasına eklediğimiz elemanları sildiğimiz metoddur. <br>
                 getItem(); metodunun kullanımı;
-                <br><br>
-                <code>
-                    localStorage.removeItem('isim'); <br>
-                    console.log(localStorage);
-                </code> <br><br>
+                <br>
+                <pre class="bg-light">
+                    <code>
+                        localStorage.removeItem('isim'); <br>
+                        console.log(localStorage);
+                    </code>
+                </pre>
                 Çıktı => Tarayıcının Console Bölümünde > Stroge {Soyİsim: "Özer", Length: 1} olarak görünmketedir.
             </p>
         </div>
@@ -126,11 +132,12 @@
             <p>
                 <span class="text-warning">clear();</span> metodu removeItem(); metodu gibi elemanları silen bir metoddur fakat farkı bütün hafızayı tek seferde siler. removeItem(); metodunda ise istediğimiz elemanı silebiliyor idik. 
                 <br>
-                clear(); metodunun kullanımı; <br><br>
-                <code>
-                    localStorage.clear();
-                </code>
-                <br><br>
+                clear(); metodunun kullanımı; <br>
+                <pre class="bg-light">
+                    <code>
+                        localStorage.clear();
+                    </code>
+                </pre>
                 Çıktı => Tarayıcının Console Bölümünde > Stroge {Length: 0} olarak görünmketedir.
             </p>
         </div>
@@ -145,15 +152,17 @@
                 Bir dizi tanımlayıp tarayıcı hafızasına seItem(); metodunu kullanarak ekleyebiliriz. <br>
                 Fakat eklenen dizi string olarak eklenecektir. <br>
                 Bu durum elemanlara ulaşmamızı zorlaştıracaktır. <br>
-                Obje elemanı olarak ekleyebilmek için <br><br>
-                <code>
-                    let hobi = ['müzik','resim','seyehat']; <br>
-                    localStorage.setItem('hobi',JSON.stringify(hobi)); <br>
-                    <br>
-                    let hobiler = JSON.parse(localStorage.getItem('hobi')); <br>
-                    console.log(hobiler); <br>
-                    console.log(localStorage);
-                </code> <br><br>
+                Obje elemanı olarak ekleyebilmek için <br>
+                <pre class="bg-light">
+                    <code>
+                        let hobi = ['müzik','resim','seyehat']; <br>
+                        localStorage.setItem('hobi',JSON.stringify(hobi)); <br>
+                        <br>
+                        let hobiler = JSON.parse(localStorage.getItem('hobi')); <br>
+                        console.log(hobiler); <br>
+                        console.log(localStorage);
+                    </code> 
+                </pre>
                 <span class="d-block"> Çıktı => </span> <br>
                 <img class ="w-100 h-100" src="/asil_site/makalelerim/makale_img/local&session_stroge/ouuput.console2.png" alt=""> 
             </p>
@@ -165,25 +174,29 @@
 
     <footer class="footer bg-secondary mt-auto">
         <div class="container">
-                <div class="row">
-                <div class="col-lg-6 text-center border-end">
-                    <h3>Telefon</h3>
-                    <a class="fs-4 text-light list-unstyled nav-link" href="tel:05544356125">
+            <div class="row">
+                <div class="col-lg-4 pt-1 text-center">
+                    <h5>Telefon</h5>
+                    <a class="text-light list-unstyled nav-link" href="tel:05544356125">
                         <i class="fa-solid fa-phone"></i> 0 554 435 61 25 </a>
-                    <h3>E-Mail</h3>
-                    <a  class="fs-4 text-light  list-unstyled nav-link" href="mailto:muharrem.o@outlook.com" for="e-mail"><i class="fa-solid fa-envelope"></i> muharrem.o@outlook.com</a>
                 </div>
-                <div class="col-lg-6 text-center pt-5 pb-5">
-                    <a href="https://www.instagram.com/muharrem.ozr/" target="_blank" class="link-light pe-5"><i class="fa-brands fa-instagram fa-4x"></i></a>
+                <div class="col-lg-4 pt-1 text-center">
+                    <h5>E-Mail</h5>
+                    <a  class="text-light  list-unstyled nav-link" href="mailto:muharrem.o@outlook.com" for="e-mail"><i class="fa-solid fa-envelope"></i> muharrem.o@outlook.com</a>
+                </div>
+                <div class="col-lg-4 text-center pt-4 pb-5">
+                    <a href="https://www.instagram.com/muharrem.ozr/" target="_blank" class="link-light pe-5"><i class="fa-brands fa-instagram fa-2x"></i></a>
                     <a href="
-                    https://github.com/ozermuharrem" target="_blank" class="link-light"><i class="fa-brands fa-github fa-4x pe-5 px-auto"></i></a>
+                    https://github.com/ozermuharrem" target="_blank" class="link-light"><i class="fa-brands fa-github fa-2x pe-5 px-auto"></i></a>
                     <a href="
-                    https://www.linkedin.com/in/muharrem-%C3%B6zer-156095131/" target="_blank" class="link-light"><i class="fa-brands fa-linkedin-in fa-4x pe-5 px-auto"></i></a>
+                    https://www.linkedin.com/in/muharrem-%C3%B6zer-156095131/" target="_blank" class="link-light"><i class="fa-brands fa-linkedin-in fa-2x pe-5 px-auto"></i></a>
                 </div>
             </div>
         </div>
     </footer>
-
+    <div class="bg-dark text-white text-center">
+        <small>Copyright © <span class="tarih"> 2021</span> | MUHARREM ÖZER</small>
+    </div>
 
     <!--bootsrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
