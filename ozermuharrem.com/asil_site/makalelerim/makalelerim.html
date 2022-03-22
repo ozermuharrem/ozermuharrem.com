@@ -48,68 +48,95 @@
             </div>
         </div>
     </nav>
-    <div class="sidebar">
-        <div class="ps-1 mt-2 h4">
-            Block İçerigi 
-            <i class="fa-solid fa-bars d-none sidebar-bars"></i>
-        </div>
-        <hr>
-        <div class="ps-3">
-            <h5>
-                <i class="fa-brands fa-js fa-2x"></i> JS
-            </h5>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="/asil_site/makalelerim/local&session_storage.html" class="list-group-item-action">Local & Session Storage</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mt-3 ps-3">
-            <h5>
-                <i class="fa-brands fa-html5 fa-2x"></i> HTML
-            </h5>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#" class="list-group-item-action">
-                        HTML başlığı altında henüz içerik eklenmedi 
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="mt-3 ps-3">
-            <h5>
-                <i class="fa-brands fa-css3-alt fa-2x"></i> CSS
-            </h5>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="/asil_site/makalelerim/css_selector.html" class="list-group-item-action">
-                        Selectors (Seçiciler)
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <header id="makale-header" class="text-center container-lg" style="margin-left: 180px;">
-        <div class="row mt-2">
-            <div class=" mt-2 col-lg-8 card me-3">
-                <img src="/asil_site/makalelerim/makale_img/css selectors.png" class="card-img-top img-fluid" alt="">
-                <div class="card-body">
-                    <p class="card-text">Sitil vermek istediğimiz HTML ögelerini bulmak yada seçmek için kullanılır</p>
+
+    <main>
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="mb-2 dropend">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            JavaScript
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/asil_site/makalelerim/local&session_storage.html" class="dropdown-item">Local & Session Storage</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-2 dropend">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Html
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="" class="dropdown-item">İçerik Eklenmedi</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-2 dropend">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            CSS
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/asil_site/makalelerim/css_selector.html" class="dropdown-item">Css Seçiciler (Selectors)</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <a href="css_selector.html" class="btn btn-outline-primary">Detay</a>
+                <div class="col-md-9">
+                    <a href="/asil_site/makalelerim/css_selector.html" class="text-dark text-decoration-none">
+                        <div class="card mb-2">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="/asil_site/makalelerim/makale_img/css selectors.png" class="img-fluid raunded-start h-100" alt="">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title fst-normal">CSS Seçiciler</h5>
+                                        <p class="card-text">Sitil vermek istediğimiz HTML ögelerini bulmak yada seçmek için kullanılır</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/asil_site/makalelerim/local&session_storage.html" class="text-dark text-decoration-none">
+                        <div class="card mb-2">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="/asil_site/makalelerim/makale_img/js storage.png" class="img-fluid raunded-start h-100" alt="">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">JS Local & Session Storage</h5>
+                                        <p class="card-text">Yapmış olduğumuz uygulamada kullanacağımız bilgileri tarayıcı hafızasında saklama gereği duyabiliriz. Hafızaya eleman ekleme çıkartma vb. işlemler için Local & Session Storage özelliğini kullanarak saklayabiliriz.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
                 </div>
             </div>
-            <div class=" mt-2 col-lg-8 card">
-                <img src="/asil_site/makalelerim/makale_img/js storage.png" class="card-img-top img-fluid" alt="">
-                <div class="card-body">
-                    <p class="card-text">Yapmış olduğumuz uygulamada kullanacağımız bilgileri tarayıcı hafızasında saklama gereği duyabiliriz. Hafızaya eleman ekleme çıkartma vb. işlemler için Local & Session Storage özelliğini kullanarak saklayabiliriz.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="local&session_storage.html" class="btn btn-outline-primary">Detay</a>
-                </div>
-            </div>
-    </header>
+        </div>
+    </main>
+
+
+
+
+
+
     <footer class="footer bg-secondary mt-auto">
         <div class="container">
             <div class="row">
