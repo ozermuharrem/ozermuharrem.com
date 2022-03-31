@@ -18,8 +18,16 @@
     <link rel="stylesheet" href="style.css">
     <title>Muharrem Özer</title>
 </head>
-<body id="anasayfa" class="">
-    <div  class="d-flex align-content-center flex-wrap container row py-auto my-auto">
+<body id="anasayfa" class="bg-light">
+
+    <div class="container" id="power">
+        <a href="#" class="btn" id="open">
+            <i class="fa-solid fa-power-off fa-10x"></i>
+        </a>
+    </div>
+
+
+    <div id="anadiv" class=" d-none">
         <div class="container pt-5 col-md-6 h-100 text-center ">
             <img src="image/radius.png" alt="m.ozer" title="Muharrem Özer" class="rounded-circle resim">
             <div class="icon mt-3">
@@ -45,7 +53,40 @@
         </div>
 
     </div>
+    <script>
+		const 	power = document.querySelector("#power"),
+        		open = document.querySelector("#open"),
+         		body = document.querySelector("body"),
+		 		anadiv = document.querySelector("#anadiv")
 
+        eventListener();
+
+        function eventListener(){
+            open.addEventListener("click",degisim);
+        }
+
+        function degisim(e){
+
+			power.className = "d-none"
+
+			body.classList= "bg-dark"
+
+			anadiv.classList = "d-flex align-content-center flex-wrap container row py-auto my-auto"
+
+
+
+
+            e.preventDefault();
+        }
+
+
+
+
+
+
+
+
+    </script>
     <!--bootsrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
