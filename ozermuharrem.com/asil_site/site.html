@@ -32,6 +32,7 @@
     </style>
 </head>
 <body id="" class="bg-light anasayfa">
+</div>
 <!--
     <div class="container " id="power">
         <div class="box">
@@ -39,7 +40,6 @@
                 <i class="fa-solid fa-power-off fa-10x" id="icon"></i>
             </a>
         </div>
-    </div>
 -->
     <div>
         <button class="btn btn-outline-light  mb-2"><i class="fa-solid fa-power-off" id="icon"></i></button>
@@ -63,8 +63,7 @@
                     <p class="text-dark fs-5">Ecole 42 Kocaeli || Junior Developer</p>
                     <div class="">
                         <a href="/asil_site/hakkimda.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">Hakkımda</a>
-                        <a href="/asil_site/cv.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">Cv</a>
-                        <a href="/asil_site/makalelerim/makalelerim.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">Makalelerim</a>
+                        <a href="/asil_site/makalelerim/makalelerim.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">Blog</a>
                         <a href="projeler/projeler.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">Projelerim</a>
                         <a href="/asil_site/iletisim.html" class="btn btn-outline-dark btn-lg mx-5 my-3 d-block">İletişim</a>
                     </div>
@@ -76,7 +75,7 @@
     <script>
         $(document).ready(function(){
             $(".anasayfa").click(function(){
-            /*     $(".box").animate({
+               $(".box").animate({
                     top:'10%',
                     left:'10%',
                     
@@ -84,10 +83,11 @@
                 3000,function(){
                     $("#icon").removeClass('fa-10x');
                 }
-                ); */
-                $("#anadiv").slideDown(3000);
+                ); 
+               $("#anadiv").slideDown(1500);
+            
                $("body").removeClass("anasayfa");
-                $("body").addClass("newanasayfa");  
+                $("body").addClass("newanasayfa"); 
             });
         });
 
