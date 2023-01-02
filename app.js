@@ -44,8 +44,7 @@ app.use(session({
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://mozer:xfR07jwFVLEwzDrr@cluster0.xs4snwy.mongodb.net/mozer-db?retryWrites=true&w=majority' })
-    // store: MongoStore.create({mongoUrl: 'mongodb://localhost:27017/mozer-db'})
+    store: MongoStore.create({mongoUrl: 'mongodb://localhost:27017/mozer-db'})
 }))
 app.use(flash());
 app.use((req, res, next) => {
