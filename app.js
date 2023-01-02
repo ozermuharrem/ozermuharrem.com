@@ -20,8 +20,7 @@ const blogRoute = require('./routes/blogRoute');
 const app = express();
 
 //! CONNECT DB
-mongoose.connect('mongodb+srv://mozer:xfR07jwFVLEwzDrr@cluster0.xs4snwy.mongodb.net/mozer-db?retryWrites=true&w=majority')
-// mongoose.connect('mongodb://localhost:27017/mozer-db')
+mongoose.connect('mongodb://localhost:27017/mozer-db')
 .then(() => {
     console.log('DB Baglantili basarili');
 })
