@@ -1,0 +1,192 @@
+/*.anasayfa{
+    background: url("/asil_site/image/Çalışma\ Yüzeyi\ 1.png") no-repeat center center fixed;
+ /* background-color: #212529; */
+ /*  -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+} */
+
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.newanasayfa{
+    background-color: floralwhite;
+}
+.resim{
+    padding: auto;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    opacity: 0.91;
+}
+
+@media screen and (max-width: 768px){
+    .resim{
+        width: 300px;
+        height: 300px;
+    }
+    
+}
+
+.navbar{
+    background: #414344;
+}
+
+.power-icon{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+    
+.content {
+    position: relative;
+    bottom: auto;
+    top: auto;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+.ortala{
+    position: relative;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width: 768px){
+    .ortala{
+        position: none;
+    }
+    
+}
+.right-single .widget-search{
+	margin-bottom: 30px;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+#site-searchform .form-control{
+	border: 1px solid #eee;
+	background-color: #fff;
+	width: 82%;
+	height: 41px;
+	padding: 5px 10px 5px 10px;
+	color: #999;
+	float: left;
+	border-radius: 0;
+}
+#site-searchform #searchsubmit {
+    float: left;
+    width: 18%;
+    height: 41px;
+    cursor: pointer;
+    text-indent: -5555em;
+    line-height: 100;
+    overflow: hidden;
+    background: #eea412 url(image/search-icon.png) no-repeat center 14px;
+    border: 0;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+.widget-categories{
+	margin-bottom: 30px;
+}
+
+.right-single .widget-search{
+	margin-bottom: 30px;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+#site-searchform .form-control{
+	border: 1px solid #eee;
+	background-color: #fff;
+	width: 82%;
+	height: 41px;
+	padding: 5px 10px 5px 10px;
+	color: #999;
+	float: left;
+	border-radius: 0;
+}
+#site-searchform #searchsubmit {
+    float: left;
+    width: 18%;
+    height: 41px;
+    cursor: pointer;
+    text-indent: -5555em;
+    line-height: 100;
+    overflow: hidden;
+    background: #eea412 url(images/search-icon.png) no-repeat center 14px;
+    border: 0;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+.widget-categories{
+	margin-bottom: 30px;
+}
+.widget-categories .widget-title{
+	font-size: 18px;
+	font-weight: 400;
+	padding: 0px;
+	margin-bottom: 15px;
+	border-right: 3px solid #eea412;
+}
+.widget-categories ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.widget-categories ul li{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 12px;
+	line-height: 20px;
+	padding: 8px 2px 8px 12px;
+}
+.widget-categories ul li a{
+	color: #777;
+	font-size: 13px;
+}
+.widget-categories ul li a:hover{
+	color: #eea412;
+}
+.widget-tags .widget-title{
+	font-size: 18px;
+	font-weight: 400;
+	padding: 0px;
+	margin-bottom: 15px;
+	border-right: 3px solid #eea412;
+}
+.widget-tags .tags{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.foot{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
