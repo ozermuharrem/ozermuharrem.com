@@ -127,7 +127,7 @@ exports.sendEmail = async (req,res) => {
     secure: true, // true for 465, false for other ports
     auth: {
       user: "muharremozer505@gmail.com", // gmail hesabı
-      pass: "ucyzajrgzdtidbpb", // gmail şifresi
+      pass: "************", // gmail şifresi
     },
   });
 
@@ -138,13 +138,6 @@ exports.sendEmail = async (req,res) => {
     subject: "ozermuharrem.com İletisim Sayfası ✔", // Subject line
     html: outputmsg, // html body
   });
-
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
 req.flash("success","Mesajınız Başarılı Bir Şekilde İletilmişrir.");
   res.status(200).redirect('/iletisim');
