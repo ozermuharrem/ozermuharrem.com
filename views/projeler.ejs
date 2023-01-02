@@ -1,0 +1,31 @@
+<%- include('partials/_header'); %>
+<%- include('partials/_navigation'); %>
+    <header>
+        <div class="container mt-2 fs-4 text-center alert-info border rounded shadow">
+            <p class="">
+                Bu alan web geliştirme sürecinde kendimi geliştirmek ve ögrendiklerimi tekrar etmek amacı ile hazırlamış olduğum projeleri içermektedir. 
+            </p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <% for(let i in projeler){ %>
+                    <div class="offset-1 col-lg-10 offset-1 ">
+                        <div class="border rounded shadow card my-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= projeler[i].projeTitle %></h5>
+                                <p class="card-text"><%= projeler[i].projeDescription %></p>
+                                <a href="<%= projeler[i].projeLink %>" class="btn btn-outline-primary"> Siteye Ulaşmak İçin Tıklayın</a>
+                                <a href="<%= projeler[i].projeGithub %>" target="_blank" class="btn btn-outline-primary float-end"> Github Repository İçin Tıklayın</a>
+                            </div>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="<%= projeler[i].projeLink %>" class="card-img-bottom" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    
+    </header>
+
+<%- include('partials/_footer'); %>

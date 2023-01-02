@@ -1,0 +1,168 @@
+<%- include('partials/_dashHeader'); %>
+<%- include('partials/_dashNavigation'); %>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">ozermuharrem.com | Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+
+
+        
+        <div class="row">
+            <div class="col-xl-6 shadow bg-body rounded">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-plus me-1"></i>
+                        Kategori Ekle
+                    </div>
+                    <div class="card-body">
+                        <form action="/kategori/createKategori" method="POST">
+                            <div class="mb-3">
+                                <label for="kategoriName" class="form-label">Kategori İsmi</label>
+                                <input type="text" name="name" class="form-control" id="kategoriName">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Kategori Oluştur</button>
+                        </form>
+                        <hr>
+                        <h6>Kategori Listesi</h6>
+                        <ul>
+                            <% for(let i in kategori){ %>
+                            <li>
+                                <div class="input-group">
+                                    <input type="text" value="<%= kategori[i].name %>" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+                                    <a href="/kategori/<%= kategori[i]._id %>?_method=DELETE" class="btn btn-outline-danger" type="button"><span>Sil</span></a>
+                                  </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+                <!-- blogs list  -->
+
+
+            <div class="col-xl-6 shadow bg-body rounded">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        Blog Listesi
+                    </div>
+
+                   <div class="row">
+                        <% for(let i in blogs){ %>
+        
+                        <div class="offset-1 col-lg-10 offset-1 my-3 shadow bg-body rounded ">
+                            <div class="card border-primary m-1 py-1">
+                                <div class="card-body">
+                                  <h5 class="card-title"><%= blogs[i].title.toUpperCase(); %></h5>
+                                  <p class="card-text"><%= blogs[i].description.substring(0, 100) + "..." %></p>
+                                  <p class="card-text"><%= blogs[i].author %></p>
+                                  <button data-bs-toggle="modal" data-bs-target="#updateBlog<%= blogs[i]._id %>" class="btn btn-outline-success" type="button">Güncelle</button> 
+                                  <a href="/blog/<%= blogs[i].slug %>?_method=DELETE" onclick="return confirm('Blog Silinecek Emin Misin?')" class="btn btn-outline-danger" type="button"><span>Sil</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- update modal -->
+                        <div class="modal fade" id="updateBlog<%= blogs[i]._id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="/blog/<%= blogs[i].slug %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="blogTitle" class="form-label">Blog Title</label>
+                                            <input name="title" value="<%= blogs[i].title %>" type="text" class="form-control" id="blogTitle">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="blogKisaAciklama" class="form-label">Kısa Açıklama</label>
+                                            <input name="kisaAciklama" value="<%= blogs[i].kisaAciklama %>" type="text" class="form-control" id="blogTitle">
+                                          </div>
+                                        <div class="mb-3">
+                                            <label for="blogAuthor" class="form-label">Blog Author</label>
+                                            <input name="author" value="<%= blogs[i].author%>" type="text" class="form-control" id="blogAuthor">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">İmage Path</label>
+                                            <input name="images" class="form-control" type="file" id="formFile">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="DataList" class="form-label">Kategori</label>
+                                            <select name="kategori" class="form-select" id="datalistOptions">
+                                                <% for(let i in kategori){ %>
+                                                    <option value="<%= kategori[i]._id%>"><%= kategori[i].name%></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="blogDescription" class="form-label">Blog Description</label>
+                                            <textarea name="description" class="form-control" id="blogDescription" rows="10"><%= blogs[i].description %></textarea>
+                                        </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update Blog</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!-- blogs list end -->
+
+
+
+
+            </div>
+        </div>
+
+        <div id="createBlog" class="container my-5 border pt-3 shadow bg-body rounded">
+
+            <h2 class="text-center">
+                New Blog Add
+            </h2>
+   
+            <form action="/blog/createBlog" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="blogTitle" class="form-label">Blog Title</label>
+                    <input name="title" type="text" class="form-control" id="blogTitle">
+                  </div>
+                  <div class="mb-3">
+                    <label for="blogKisaAciklama" class="form-label">Kısa Açıklama</label>
+                    <input name="kisaAciklama" type="text" class="form-control" id="blogTitle">
+                  </div>
+                  <div class="mb-3">
+                    <label for="blogAuthor" class="form-label">Blog Author</label>
+                    <input name="author" type="text" class="form-control" id="blogAuthor">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">İmage Path</label>
+                    <input name="images" class="form-control" type="file" id="formFile">
+                  </div>
+                  <div class="mb-3">
+                  <label for="DataList" class="form-label">Kategori</label>
+                    <select name="kategori" class="form-select">
+                        <% for(let i in kategori){ %>
+                            <option value="<%= kategori[i]._id%>"><%= kategori[i].name%></option>
+                        <% } %>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="blogDescription" class="form-label">Blog Description</label>
+                    <textarea name="description" class="form-control" id="blogDescription" rows="10"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                  </div>
+            </form>
+    
+        </div>
+<%- include('partials/_dashFooter'); %>

@@ -1,0 +1,163 @@
+<%- include('partials/_dashHeader'); %>
+<%- include('partials/_dashNavigation'); %>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">ozermuharrem.com | Dashboard / Ozellestir</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard / Ozellestir</li>
+        </ol>    
+        <div class="row">
+            <div class="col-lg-12 shadow bg-body rounded">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        Veriler
+                    </div>
+                    <!-- Modal BTN -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ozellestirModal">
+                        Yeni Veri Ekle
+                    </button>
+
+                      <!-- Modal -->
+                    <div class="modal fade" id="ozellestirModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Yeni Veri Ekleme</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <form action="/dash/createOzellestir" method="POST" enctype="multipart/form-data">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="profilName" class="form-control" id="floatingInput" placeholder="Profil Name">
+                                            <label for="floatingInput">Profil Name</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="file" name="profilImage" class="form-control" id="floatingInput" placeholder="Profil İmage">
+                                            <label for="floatingInput">Profil İmage</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="profilTitle" class="form-control" id="floatingInput" placeholder="ProfilTitle">
+                                            <label for="floatingInput">Profil Title</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="tel" name="telefonNo" class="form-control" id="floatingInput" placeholder="telefonNo">
+                                            <label for="floatingInput">Telefon No</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="emailAdres" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email address</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="githubLink" class="form-control" id="floatingInput" placeholder="GitHub Link">
+                                            <label for="floatingInput">GitHub Link</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="instegramLink" class="form-control" id="floatingInput" placeholder="Instagram Link">
+                                            <label for="floatingInput">Instagram Link</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="linkedinLink" class="form-control" id="floatingInput" placeholder="Linkedin Link">
+                                            <label for="floatingInput">Linkedin Link</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                                    </div>
+                                </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- UPDATE AND DELETE -->
+
+            <div class="container my-5 ">
+                <div class="row">
+                    <% for(let i in ozellestir){ %>
+    
+                    <div class="col-lg-6 my-3">
+                        <div class="card border-primary shadow bg-body rounded" style="width: 18rem;">
+                            <img src="<%= ozellestir[i].profilImage %>" style="max-width: 300px;" class="card-img-top" alt="<%= ozellestir[i].profilName %>">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= ozellestir[i].profilName %></h5>
+                              <p class="card-text"><%= ozellestir[i].profilTitle %></p>
+                              <p class="card-text"><%= ozellestir[i].profilDescription %></p>
+                              <p class="card-text"><%= ozellestir[i].telefonNo %></p>
+                              <p class="card-text"><a class="nav-link" href="mailto:<%= ozellestir[i].emailAdres %>"><%= ozellestir[i].emailAdres %></a></p>
+                              <p class="card-text"><a class="nav-link" href="<%= ozellestir[i].githubLink %>"><%= ozellestir[i].githubLink %></a></p>
+                              <p class="card-text"><a class="nav-link" href="<%= ozellestir[i].instegramLink %>"><%= ozellestir[i].instegramLink %></a></p>
+                              <p class="card-text"><a class="nav-link" href="<%= ozellestir[i].linkedinLink %>"><%= ozellestir[i].linkedinLink %></a></p>
+
+                              <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#ozellUpdateModal<%= ozellestir[i]._id %>">Güncelle</button>
+                              <a href="/dash/<%= ozellestir[i]._id %>?_method=DELETE" onclick="return confirm('Silinecek Emin Misin')"  class="btn btn-outline-danger" type=""><span>Sil</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- update modal -->
+                    <div class="modal fade" id="ozellUpdateModal<%= ozellestir[i]._id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-info">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Site Verisi Güncelle Ekleme</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card-body">
+    
+                                       <form action="/dash/<%= ozellestir[i]._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="profilName" class="form-control" id="floatingInput" value="<%= ozellestir[i].profilName %>">
+                                                <label for="floatingInput">Proje Title</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="profilTitle" class="form-control" id="floatingInput" value="<%= ozellestir[i].profilTitle %>">
+                                                <label for="floatingInput">Proje Link</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="telefonNo" class="form-control" id="floatingInput" value="<%= ozellestir[i].telefonNo %>">
+                                                <label for="floatingInput">Proje Açıklaması</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="emailAdres" class="form-control" id="floatingInput" value="<%= ozellestir[i].emailAdres %>">
+                                                <label for="floatingInput">Proje Açıklaması</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="githubLink" class="form-control" id="floatingInput" value="<%= ozellestir[i].githubLink %>">
+                                                <label for="floatingInput">Proje Açıklaması</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="instegramLink" class="form-control" id="floatingInput" value="<%= ozellestir[i].instegramLink %>">
+                                                <label for="floatingInput">Proje Açıklaması</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="linkedinLink" class="form-control" id="floatingInput" value="<%= ozellestir[i].linkedinLink %>">
+                                                <label for="floatingInput">Proje Açıklaması</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="file" name="profilImage" class="form-control" id="floatingInput">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                            </div>
+                                       </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+    
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+<%- include('partials/_dashFooter'); %>

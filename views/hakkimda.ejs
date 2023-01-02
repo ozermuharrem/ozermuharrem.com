@@ -1,0 +1,121 @@
+<%- include('partials/_header'); %>
+<body id="timelinebody" class="h-100 d-flex flex-column">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a href="/" class="navbar-brand <%= page_name === 'index' && 'active' %>">
+                <i class="fa-solid fa-house"></i>
+                <!--<img src="/asil_site/image/Çalışma Yüzeyi 1.png" alt="" width="50px" height="50 px">-->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobil">
+                <i class="navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mobil">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/hakkimda" class="nav-link <%= page_name === 'hakkimda' && 'active' %>">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog"class="nav-link <%= page_name === 'blog' && 'active' %>">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projeler" class="nav-link <%= page_name === 'projeler' && 'active' %>">Projelerim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/iletisim" class="nav-link <%= page_name === 'iletisim' && 'active' %>">İletişim</a>
+                    </li>
+                    <% if(userIN){ %>
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link <%= page_name === 'dashboard' && 'active' %>">Dashboard</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="tmlconta">
+            <div class="top-section">
+                <h1>Muharrem Özer</h1>
+                <p>23/07/1990 İstanbul</p>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <p>
+                            Gaziosman Paşa Ünv. Turhal Myo. Muhasebe ve Vergi Uygulamaları <br>
+                            <small>2009-2011</small>
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>
+                            Ünv. Açıköğretim Fakültesi Maliye <br>
+                            <small>2012-2014</small>
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>
+                            Ecole 42 Kocaeli <br>
+                            <small>2022 - <i class="fa-solid fa-infinity"></i></small>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="line"></div>
+                <div class="tmlsection">
+                    <div class="bead"></div>
+                    <div class="tmlcontent">
+                        <h2 class="tmlh2">Smmm Mehmet Yaman</h2>
+                        <p>2011/Mayıs - 2013/Ağustos</p>
+                        <p>Muhasebe</p>
+                        <p>Kdv1-2 Muhtasar Sgk Bildirgeleri Ba-Bs Bildirim Fomları ve Geçici vergileri hazırlayıp beyan etmek</p>
+                    </div>
+                </div>
+                <div class="tmlsection">
+                    <div class="bead"></div>
+                    <div class="tmlcontent">
+                        <h2 class="tmlh2">Ravv Tekstil A.Ş.</h2>
+                        <p>2013/Ekim - 2016/Mart</p>
+                        <p>Muhasebe ve İnsan Kaynakları</p>
+                        <p>Kdv1-2 Muhtasar Sgk Bildirgeleri Ba-Bs Bildirim Fomları ve Geçici Vergileri hazırlayıp beyan etmek ve Kdv İadesi Listeleri Gçb Listesi, Satış Fatura Listesi, Yüklenilecek Kdv Listesi, İndirilecek Kdv Listesi, Kdv Hesaplama Tablolarını hazırlayıp gelen Kontrol Raporlarında ki eksiklikleri düzeltmek, Cari İşlemler Banka İşlemleri Sgk İşlemleri İşe Giriş Bildirgelerinin yapılması, Bordroların Hazırlanması, İşten Ayrılan Personelin Çıkış İşlemleri Ve Sgk'ya Çıkış Bildirgesinde Bulunmaktı. Şirkette Luca Mali Müşavir Paketi ile Luca Net Kobi Ticari paketini kullandım. Ek olarak Porkotek Personel Takip Sistemini aktif şekilde kullanmaktayım. Sedex ve Sgs denetimlerine hazırlanarak bağımsız dış denetçilerin istediklerini hazırlayıp şirketimizin denetimlerden geçmesi için çalıştım</p>
+                    </div>
+                </div>
+                <div class="tmlsection">
+                    <div class="bead"></div>
+                    <div class="tmlcontent">
+                        <h2>Üçem Ayakkabı Ltd. Şti. </h2>
+                        <p>2016/Eylül - 2018/Ağustos</p>
+                        <p>Muhasebe ve İnsan Kaynakları</p>
+                        <p>Şirketin Muhasebe ve İnsan Kaynakları süreçlerini yürüttüm. Alış ve Satışların muhasebeleştirilmesi ve beyannamelerin beyan edeilmesi ile personel özlük işlemleri, bordro işlemleri, izin yönetimi gibi organizasyonları yönettim.</p>
+                    </div>
+                </div>
+                <div class="tmlsection">
+                    <div class="bead"></div>
+                    <div class="tmlcontent">
+                        <h2 class="tmlh2">Tet Giyim A.Ş.</h2>
+                        <p>2018/Eylül - 2021/Eylül</p>
+                        <p>İnsan Kaynakları Sorumlusu</p>
+                        <p>Şirketin İnsan Kaynakları sorumlusu olarak yeni açılan şubesinde başladım. Personellerin bordro ve özlük işlemleri süreçlerini yönettim. Şiretin Sedex , Intertek gibi Sosyal Uygunluk denetimlerine hazırlanarak bağımsız dış denetçilerin istediklerini hazırlayıp şirketimizin denetimlerden geçmesi için çalıştım</p>
+                    </div>
+                </div>
+                <div class="tmlsection">
+                    <div class="bead"></div>
+                    <div class="tmlcontent">
+                        <h2 class="tmlh2">42 Kocaeli</h2>
+                        <p>
+                            Uzun yıllar Muhasebe ve İnsan Kaynakları departmanında çalıştım. 
+                            Tüm çalıştığım firmalarda kendimce dijital dönüşüm ve gelişen teknolojiye ayak uydurabilmesi için çalışmalar yaptım.
+                            Kendimce eksik gördüğüm alanlarda kendi projelerimi yapmaya çalışırken kendimi yazılım dünyası içinde buldum. 
+                            Son çalıştığım Tet Giyim A.Ş. şirketinde personellerin izinlerini yönetebilmek için mobil uygulama geliştirmeyi hayal ettim.
+                            Mobil uygulamayı geliştirmeye çalışırken Ecole 42 Kocaeli projesini fark edip başvuruda bulundum.
+                            Başvuru sırasında ki testleri tamalayarak havuz eğitiminine katılmak için istifa ettim. 
+                            Ana eğitime hak kazandığımda yaşamış olduğum şehit Tokat'tan ailemi de alarak Gebze'ye taşındım.
+                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%- include('partials/_footer'); %>
+

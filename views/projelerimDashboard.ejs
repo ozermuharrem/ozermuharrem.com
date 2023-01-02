@@ -1,0 +1,126 @@
+<%- include('partials/_dashHeader'); %>
+<%- include('partials/_dashNavigation'); %>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">ozermuharrem.com | Dashboard / <span class="text-muted">Projelerim</span></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard / Projelerim</li>
+        </ol>    
+        <div class="row">
+            <div class="col-lg-12 shadow bg-body rounded">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        Projeler
+                    </div>
+                    <!-- Modal BTN -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projeModal">
+                        Yeni Proje Eklemek İçin Tıkla
+                    </button>
+
+                      <!-- Modal -->
+                    <div class="modal fade" id="projeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Yeni Proje Ekleme</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <form action="/dash/createProje" method="POST" enctype="multipart/form-data">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="projeTitle" class="form-control" id="floatingInput" placeholder="Proje Title">
+                                            <label for="floatingInput">Proje Title</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="projeLink" class="form-control" id="floatingInput" placeholder="Proje Link">
+                                            <label for="floatingInput">Projenin Linki</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <input type="text" name="projeGithub" class="form-control" id="floatingInput" placeholder="Proje Link">
+                                            <label for="floatingInput">Projenin Github Linki</label>
+                                          </div>
+                                          <div class="form-floating mb-3">
+                                            <textarea type="text" name="projeDescription" class="form-control" id="floatingInput" placeholder="Proje Description"></textarea>
+                                            <label for="floatingInput">Proje Description</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5 ">
+            <div class="row">
+                <% for(let i in projeler){ %>
+
+                <div class="col-lg-6 my-3 shadow bg-body rounded ">
+                    <div class="card border-primary">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="<%= projeler[i].projeLink %>" class="card-img-bottom" frameborder="0"></iframe>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= projeler[i].projeTitle %></h5>
+                          <p class="card-text"><%= projeler[i].projeDescription %></p>
+                          <a href="<%= projeler[i].projeLink %>" class="btn btn-primary">Go somewhere</a>
+                          <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#projeUpdateModal<%= projeler[i]._id %>">Güncelle</button>
+                          <a href="/dash/projeDel/<%= projeler[i]._id %>?_method=DELETE" onclick="return confirm('Silinecek Emin Misin')"  class="btn btn-outline-danger" type=""><span>Sil</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- update modal -->
+                <div class="modal fade" id="projeUpdateModal<%= projeler[i]._id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-info">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proje Güncelle Ekleme</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card-body">
+
+                                   <form action="/dash/updateProje/<%= projeler[i]._id %>?_method=PUT" method="POST">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="projeTitle" class="form-control" id="floatingInput" value="<%= projeler[i].projeTitle %>">
+                                            <label for="floatingInput">Proje Title</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="projeLink" class="form-control" id="floatingInput" value="<%= projeler[i].projeLink %>">
+                                            <label for="floatingInput">Proje Link</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="projeGithub" class="form-control" id="floatingInput" placeholder="Proje Link">
+                                            <label for="floatingInput">Projenin Github Linki</label>
+                                          </div>
+                                        <div class="form-floating mb-3">
+                                            <textarea type="text" name="projeDescription" class="form-control" id="floatingInput"><%= projeler[i].projeDescription %>"</textarea>
+                                            <label for="floatingInput">Proje Açıklaması</label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                                        </div>
+                                   </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+<%- include('partials/_dashFooter'); %>

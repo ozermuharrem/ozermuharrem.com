@@ -1,0 +1,125 @@
+<%- include('partials/_header'); %>
+<%- include('partials/_navigation'); %>
+
+    <main>
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="widget-search">
+                        <div class="site-search-area">
+                            <form method="GET" action="/blog" class="d-flex" role="search">
+                                <input class="form-control me-2" name="search" type="text" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-warning" type="submit">Search</button>
+                              </form>
+                        </div>
+                    </div>
+                    <div class="widget-categories pt-3">
+                        <h3 class="widget-title">Kategori</h3>
+                        <ul>
+                            <% for (let i=0; i< kategoris.length; i++) { %>
+                            <li><a href="/blog?kategori=<%= kategoris[i].slug %>"><%= kategoris[i].name %></a></li>
+                            <% } %>	
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-9">
+                    <% if(flashMesaj){ %>
+                        <% if(flashMesaj.success) { %>
+                            <div class="m-3 text-center alert alert-success">
+                                <%= flashMesaj.success %>
+                            </div>
+                        <% }else if(flashMesaj.err){ %>
+                            <div class="m-3 text-center alert alert-danger">
+                                <%= flashMesaj.err %>
+                            </div>
+                        <% } %>
+                    <% } %> 
+                    <% for(let x in blog){ %>
+                    <a href="blog/<%= blog[x].slug %>" class="text-dark text-decoration-none">
+                        <div class="card mb-2" style="max-height: 250px;">
+                            <div class="row">
+                                <div class="col-4 d-none d-lg-block">
+                                    <img src="<%= blog[x].images %>" style="max-height: 245px;" class="img-fluid raunded-start h-100" alt="">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title fst-normal"><%= blog[x].title.toUpperCase(); %></h5>
+                                        <p class="card-text"><%= blog[x].kisaAciklama.substring(0, 150) + "..." %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <% } %>
+                
+                    <div>
+                        <% if(toplamPageCount > 0) { %>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                            
+                                <% for(i = 1 ; i <= toplamPageCount; i++ ){ %>
+                                    <% if(i == current){ %>
+                                        <li class="page-item active"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+                                    <% }else if(i < toplamPageCount) { %>
+                                        <li class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+                                    <% }else{ %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/?page=<%= i %>" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                    <% } %>
+    
+                              <% } %>
+                          
+                            </ul>
+                          </nav>
+                          <% } %>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer fixed-bottom bg-secondary py-auto mt-auto">
+        <div class="container">
+            <div class="row pt-3">
+                <div class="col-lg-4 pt-1 text-center">
+                    <h5>Telefon</h5>
+                    <a class="text-light list-unstyled nav-link" href="tel:<%= ozellestir[0].telefonNo %>">
+                        <i class="fa-solid fa-phone"></i> <%= ozellestir[0].telefonNo %> </a>
+                </div>
+                <div class="col-lg-4 pt-1 text-center">
+                    <h5>E-Mail</h5>
+                    <a  class="text-light  list-unstyled nav-link" href="mailto:<%= ozellestir[0].emailAdres %>" for="e-mail"><i class="fa-solid fa-envelope"></i> <%= ozellestir[0].emailAdres %></a>
+                </div>
+                <div class="col-lg-4 text-center pt-4 pb-5">
+                    <a href="<%= ozellestir[0].instegramLink %>" target="_blank" class="link-light pe-5"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href="
+                    <%= ozellestir[0].githubLink %>" target="_blank" class="link-light"><i class="fa-brands fa-github fa-2x pe-5 px-auto"></i></a>
+                    <a href="
+                    <%= ozellestir[0].linkedinLink %>" target="_blank" class="link-light"><i class="fa-brands fa-linkedin-in fa-2x pe-5 px-auto"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark text-white text-center">
+            <small>Copyright © <span class="tarih"> 2021</span> | MUHARREM ÖZER</small>
+        </div>
+    </footer>
+
+
+    <script src="/js/timeline.js"></script>
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+    <!--bootsrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!--js-->
+    <script src="/js/script.js"></script>
+    <script src="/js/projeler.js"></script>
+</body>
+</html>

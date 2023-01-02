@@ -1,0 +1,65 @@
+<%- include('partials/_header'); %>
+<%- include('partials/_navigation'); %>
+
+    <main>
+        <div class="container my-4">
+            <h2>
+                İletişim
+            </h2>
+            <% if(flashMesaj){ %>
+                <% if(flashMesaj.success) { %>
+                    <div class="m-3 text-center alert alert-success">
+                        <%= flashMesaj.success %>
+                    </div>
+                <% }else if(flashMesaj.err){ %>
+                    <div class="m-3 text-center alert alert-danger">
+                        <%= flashMesaj.err %>
+                    </div>
+                <% } %>
+            <% } %> 
+            <div class="row">
+                <div class="col-lg-6 mx-auto border bg-light shadow">
+                    <div class="">
+                        <form action="/iletisim" method="POST" id="iletisim">
+                            <div class="row g-3">
+                                <div class="mb-3 pt-3 col-md-6">
+                                    <label for="name" class="form-label">Ad</label>
+                                    <input name="ad" type="text" id="name" class="form-control">
+                                </div>
+                                <div class="mb-3 pt-3 col-md-6">
+                                    <label for="surname" class="form-label">Soyad</label>
+                                    <input name="soyad" type="text" id="surname" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">E-Mail</label>
+                                <input name="email" type="email" id="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone">Telefon Numaranız</label>
+                                <input name="telNo" type="text" id="phone" maxlength="11" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="konu">Konu</label>
+                                <input name="konu" type="text" id="konu" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesaj">Mesajınız</label>
+                                <textarea name="mesaj" id="mesaj" cols="20" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-outline-warning d-block" id="btnSet">Gönder</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <img src="../image/pexels-luis-quintero-2111759.jpg" class="border img-fluid" style="width: 75%; height: 100%;" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+<%- include('partials/_footer'); %>
